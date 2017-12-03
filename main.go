@@ -1,5 +1,6 @@
 // travelex-test documentation
 //   This is a simple service that supports 2 endpoints
+//    Only application/json content-type is supported
 //     GET /v1/countries?target=source
 //     GET /v1/countries?target=destination
 package main
