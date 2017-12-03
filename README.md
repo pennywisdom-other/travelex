@@ -7,7 +7,7 @@ You'll need docker and a git client to run this application.
 
 ## Running ##
 ```bash
-git clone git@github.com:pennywisdom-other/travelex.git
+git clone https://github.com/pennywisdom-other/travelex.git
 cd travelex
 docker build -t travelex-test .
 docker run -it -p 8080:8080 travelex-test
