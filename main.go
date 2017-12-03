@@ -14,10 +14,15 @@ import (
 "time"
 
 	"github.com/gin-gonic/gin"
+	"fmt"
 )
 
 
 func main() {
+	fmt.Println("#############################################")
+	fmt.Println("Welcome to the Countries Microservice")
+	fmt.Println("Starting listeners and waiting for requests.")
+	fmt.Println("#############################################")
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
