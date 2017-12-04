@@ -30,11 +30,11 @@ The API for this service supports a single endpoint that can be queried using a 
 You can query the service as follows:
 
 ```bash
-$ curl -- header "Accept:application/json" http://localhost:8080/v1/countries?target=source
+$ curl --header "Accept:application/json" --header "Content-Type:application/json" http://localhost:8080/v1/countries?target=source
 ```
 
 ```bash
-$ curl -- header "Accept:application/json" http://localhost:8080/v1/countries?target=destination
+$ curl --header "Accept:application/json" --header "Content-Type:application/json" http://localhost:8080/v1/countries?target=destination
 ```
 
 #### Request Headers ####
