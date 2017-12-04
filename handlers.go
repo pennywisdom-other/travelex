@@ -8,8 +8,8 @@ import (
 // CountryData is a simple model struct.
 // It can be populated with the Name and IsoCode of a country
 type CountryData struct {
-	Name    string `json:"Name"`
-	IsoCode string `json:"IsoCode"`
+	Name    string `json:"name"`
+	IsoCode string `json:"isoCode"`
 }
 
 var sourceCountries = []CountryData{
