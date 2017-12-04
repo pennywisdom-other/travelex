@@ -102,6 +102,42 @@ func TestUnsupportedContentTypeReturnsBadRequest(t *testing.T) {
 	}
 }
 
+func TestUnsupportedAcceptReturnsBadRequest(t *testing.T) {
+	// reduce output noise
+	gin.SetMode(gin.TestMode)
+
+	// Setup your router
+	// register your routes
+	r := gin.Default()
+	// use requestAuthorizerMiddleware middleware to handle unsupported requests
+	v1 := r.Group("/v1")
+	{
+		v1.GET("/countries", requestAuthorizerMiddleware, handleCountryRequest)
+	}
+
+	req, err := http.NewRequest(http.MethodGet, "/v1/countries?target=source", nil)
+	// add xml content type not json
+	req.Header.Add("content-type", "application/xml")
+	req.Header.Add("accept", "application/xml")
+	if err != nil {
+		t.Fatalf("Couldn't create request: %v\n", err)
+	}
+
+	// Create a response recorder so you can inspect the response
+	w := httptest.NewRecorder()
+
+	// Perform the request
+	r.ServeHTTP(w, req)
+
+	if http.StatusBadRequest != w.Code {
+		t.Error(
+			"For", http.StatusBadRequest,
+			"expected", http.StatusBadRequest,
+			"got", w.Code,
+		)
+	}
+}
+
 func TestExpectedResponseCodes(t *testing.T) {
 	testUrlData := []string{
 		"/v1/countries?target=source|200",
@@ -159,6 +195,7 @@ func TestSourceCountriesRequestData(t *testing.T) {
 
 	req, err := http.NewRequest(http.MethodGet, "/v1/countries?target=source", nil)
 	req.Header.Add("content-type", "application/json")
+	req.Header.Add("accept", "application/json")
 	if err != nil {
 		t.Fatalf("Couldn't create request: %v\n", err)
 	}

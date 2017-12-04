@@ -29,6 +29,12 @@ func requestAuthorizerMiddleware(c *gin.Context) {
 	if c.ContentType() != "application/json" {
 		c.AbortWithStatus(http.StatusBadRequest)
 	}
+
+	if c.GetHeader("Accept") != "application/json"{
+		c.AbortWithStatus(http.StatusBadRequest)
+	}
+
+
 }
 
 func handleCountryRequest(c *gin.Context) {
