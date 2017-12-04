@@ -37,7 +37,7 @@ $ curl -- header &quot;Accept:application/json&quot;áhttp://localhost:8080/v1/co
 $ curl -- header &quot;Accept:application/json&quot;ßhttp://localhost:8080/v1/countries?target=destination
 ```
 
-####Request Headers ####
+#### Request Headers ####
 The API supports requests made with the following request headers:
 
 ```
