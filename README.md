@@ -22,16 +22,6 @@ You can then use something like [postman](https://www.getpostman.com) to interac
 ### V1 ###
 The API for this service supports a single endpoint that can be queried using a 2 querystring options.
 
-### Request Headers ###
-The API supports requests made with the following request headers:
-
-```
-Accept:application/json
-Content-Type:application/json
-```
-
-Unsupport values will receive a 400 Bad Request reponse.
-
 #### Endpoint ####
 
 /v1/countries?target=source
@@ -47,3 +37,12 @@ $ curl -- header &quot;Accept:application/json&quot;áhttp://localhost:8080/v1/co
 $ curl -- header &quot;Accept:application/json&quot;ßhttp://localhost:8080/v1/countries?target=destination
 ```
 
+####Request Headers ####
+The API supports requests made with the following request headers:
+
+```
+Accept:application/json
+Content-Type:application/json
+```
+
+Unsupport values will receive a 400 Bad Request reponse.
